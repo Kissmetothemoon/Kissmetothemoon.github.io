@@ -30,15 +30,12 @@ I am a researcher at **Beihang University**, working on **AI infrastructure** �
 
 ### Research
 
-My research asks how to make LLM inference faster and cheaper, from algorithms down to silicon. On the algorithm–system side, I work on speculative decoding and serving systems: my recent project **[ASD](https://github.com/Kissmetothemoon/ASD)** is a bounded-regret *Approximate Speculative Decoding* acceptance policy for DSpark speculative decoding in [SGLang](https://github.com/sgl-project/sglang). It relaxes strict greedy verification by admitting draft tokens whose regret stays within a per-request bounded budget, while exactly recovering strict verification at budget zero — on Qwen3-14B (GSM8K) this yields +13.3% tokens/s at a cost of 0.23 pp accuracy. On the hardware side, I study analog compute-in-memory accelerators and noise-aware matrix multiplication, exploring how algorithms should be co-designed with the substrates they run on.
+**Current — AI infrastructure for efficient inference.** I work on making LLM inference faster and cheaper. My recent project **[ASD](https://github.com/Kissmetothemoon/ASD)** ([arXiv:2608.03447](https://arxiv.org/abs/2608.03447)) introduces a bounded-regret approximate acceptance policy for speculative decoding in [SGLang](https://github.com/sgl-project/sglang). I am currently working on efficient inference optimization for **Diffusion Language Models (DLMs)**.
 
-Specific directions include:
-
-- efficient LLM inference — speculative decoding, serving systems, KV-cache & scheduling;
-- compute-in-memory architectures — analog CiM accelerators, noise-aware computation.
+**Past — software–hardware co-optimization for compute-in-memory.** I studied how to deploy neural networks robustly on analog CiM, a new AI acceleration substrate, addressing hardware noise through co-design: noise-aware training and straight-through estimation ([ASICON'25a](/publications/)), hybrid projection decomposition for state space models ([ASICON'25b](/publications/)), noise-aware sampling for diffusion models ([DATE'26](/publications/)), and noise-resilient LLM inference on CiM ([ROMER](https://arxiv.org/abs/2605.11800), [KV cache protection](https://arxiv.org/abs/2607.29076)).
 
 ### Beyond research
 
 I enjoy photography. You can find my photographic works on [Xiaohongshu](https://www.xiaohongshu.com/user/profile/68cba2df000000002102beb5) and [Douyin](https://www.douyin.com/user/self?from_tab_name=kissmetothemoon).
 
-Feel free to reach out via yanruo.f@gmail.com — I'm always happy to discuss inference systems and hardware–algorithm co-design.
+Feel free to reach out via yanruo.f@gmail.com (or ynfeng@buaa.edu.cn) — I'm always happy to discuss inference systems and hardware–algorithm co-design.

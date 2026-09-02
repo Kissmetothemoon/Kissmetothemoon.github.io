@@ -7,7 +7,7 @@ first_name: Yuannuo
 middle_name:
 last_name: Feng
 contact_note: >
-  You can even add a little note about which of these is the best way to reach you.
+  Also reachable at ynfeng@buaa.edu.cn.
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Personal homepage of Yuannuo Feng, AI infrastructure researcher at Beihang University, working on efficient LLM inference and compute-in-memory architectures.
 footer_text: >
@@ -339,8 +339,8 @@ display_categories: ["research"] # these categories will be displayed on the fro
 # -----------------------------------------------------------------------------
 
 scholar:
-  last_name: [Einstein]
-  first_name: [Albert, A.]
+  last_name: [Feng]
+  first_name: [Yuannuo, Y.]
 
   style: apa
   locale: en
