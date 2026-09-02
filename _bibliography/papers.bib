@@ -1,28 +1,6 @@
 ---
 ---
 
-@inproceedings{feng2025hpd,
-  abbr        = {ASICON},
-  bibtex_show = {true},
-  title       = {HPD: Hybrid Projection Decomposition for Robust State Space Models on Analog CiM Hardware},
-  author      = {Feng, Yuannuo and Zhou, W. and Lyu, Y. and Liu, H. and Liu, Z. and Wong, N. and Kang, W.},
-  booktitle   = {2025 IEEE 16th International Conference on ASIC (ASICON)},
-  pages       = {1--4},
-  year        = {2025},
-  selected    = {true}
-}
-
-@inproceedings{feng2025ste,
-  abbr        = {ASICON},
-  bibtex_show = {true},
-  title       = {Extending Straight-Through Estimation for Robust Neural Networks on Analog CiM Hardware},
-  author      = {Feng, Yuannuo and Zhou, W. and Lyu, Y. and Zhang, Y. and Liu, Z. and Wong, N. and Kang, W.},
-  booktitle   = {2025 IEEE 16th International Conference on ASIC (ASICON)},
-  pages       = {1--4},
-  year        = {2025},
-  selected    = {true}
-}
-
 @inproceedings{feng2026nas,
   abbr        = {DATE},
   bibtex_show = {true},
@@ -69,6 +47,28 @@
   code          = {https://github.com/Kissmetothemoon/ASD},
   selected      = {true},
   abstract      = {Speculative decoding accelerates autoregressive generation by verifying a draft block with a target model in parallel. Under standard greedy verification, decoding stops at the first draft token that differs from the target argmax, discarding the remaining target-scored suffix. Although accepting such a mismatch changes the decoding trajectory, it can make a contiguous suffix reusable when its tokens remain target-greedy under the realized prefix. In this paper, we introduce Approximate Speculative Decoding (ASD), a training-free verifier that replaces binary first-mismatch truncation with budgeted longest-prefix selection. ASD accepts selected mismatches subject to a local target-logit regret gate, a per-block exception cap, and a persistent request-level regret budget, then reuses the contiguous target-greedy suffix without additional approximate decisions or target-model forward passes. ASD requires neither a new draft model nor fine-tuning, and exactly reduces to standard greedy verification when the budget is zero. Experiments show that ASD improves fixed-workload throughput by 3.05%-15.26% over matched strict verification and averages a 7.78% gain across seven Qwen3-14B + DSpark-14B tasks. On DeepSeek-V4-Flash (284B) with DSpark it also raises verifier-side acceptance by roughly 10%-16% on GSM8K and MATH-500 in an FP4-to-FP8 compatibility setting.}
+}
+
+@inproceedings{feng2025hpd,
+  abbr        = {ASICON},
+  bibtex_show = {true},
+  title       = {HPD: Hybrid Projection Decomposition for Robust State Space Models on Analog CiM Hardware},
+  author      = {Feng, Yuannuo and Zhou, W. and Lyu, Y. and Liu, H. and Liu, Z. and Wong, N. and Kang, W.},
+  booktitle   = {2025 IEEE 16th International Conference on ASIC (ASICON)},
+  pages       = {1--4},
+  year        = {2025},
+  selected    = {true}
+}
+
+@inproceedings{feng2025ste,
+  abbr        = {ASICON},
+  bibtex_show = {true},
+  title       = {Extending Straight-Through Estimation for Robust Neural Networks on Analog CiM Hardware},
+  author      = {Feng, Yuannuo and Zhou, W. and Lyu, Y. and Zhang, Y. and Liu, Z. and Wong, N. and Kang, W.},
+  booktitle   = {2025 IEEE 16th International Conference on ASIC (ASICON)},
+  pages       = {1--4},
+  year        = {2025},
+  selected    = {true}
 }
 
 % 后续每篇论文复制上面的条目即可。注意：注释中不要包含 @ 符号，会触发 BibTeX 解析错误。
