@@ -26,15 +26,19 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I am a researcher at **Beihang University** working on **AI infrastructure**, with a focus on **efficient large language model (LLM) inference** and **compute-in-memory (CiM) architectures**.
+I am a researcher at **Beihang University**, working on **AI infrastructure** — efficient large language model (LLM) inference and compute-in-memory (CiM) architectures.
 
-My recent work includes **ASD**, a bounded-regret *Approximate Speculative Decoding* acceptance policy for DSpark speculative decoding in [SGLang](https://github.com/sgl-project/sglang) — relaxing strict greedy verification to admit draft tokens whose regret stays within a per-request bounded budget, while exactly recovering strict verification at budget zero. I am also surveying **Diffusion Language Models (DLMs)** and their implications for efficient inference systems.
+### Research
 
-**Research interests**
-- Efficient LLM inference: speculative decoding, serving systems, KV-cache & scheduling
-- Compute-in-memory architectures: analog CiM accelerators, noise-aware computation
-- Diffusion language models: parallel decoding and system co-design
+My research asks how to make LLM inference faster and cheaper, from algorithms down to silicon. On the algorithm–system side, I work on speculative decoding and serving systems: my recent project **[ASD](https://github.com/Kissmetothemoon/ASD)** is a bounded-regret *Approximate Speculative Decoding* acceptance policy for DSpark speculative decoding in [SGLang](https://github.com/sgl-project/sglang). It relaxes strict greedy verification by admitting draft tokens whose regret stays within a per-request bounded budget, while exactly recovering strict verification at budget zero — on Qwen3-14B (GSM8K) this yields +13.3% tokens/s at a cost of 0.23 pp accuracy. On the hardware side, I study analog compute-in-memory accelerators and noise-aware matrix multiplication, exploring how algorithms should be co-designed with the substrates they run on.
 
-**Open source**: [ASD](https://github.com/Kissmetothemoon/ASD) (Apache-2.0)
+Specific directions include:
+
+- efficient LLM inference — speculative decoding, serving systems, KV-cache & scheduling;
+- compute-in-memory architectures — analog CiM accelerators, noise-aware computation.
+
+### Beyond research
+
+I enjoy photography. You can find my photographic works on [Xiaohongshu](https://www.xiaohongshu.com/user/profile/68cba2df000000002102beb5) and [Douyin](https://www.douyin.com/user/self?from_tab_name=kissmetothemoon).
 
 Feel free to reach out via yanruo.f@gmail.com — I'm always happy to discuss inference systems and hardware–algorithm co-design.

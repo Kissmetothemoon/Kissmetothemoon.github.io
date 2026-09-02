@@ -45,6 +45,6 @@ Caveats: these are local research-evaluator numbers on fixed-length generation (
 
 - Server-path benchmarks (`sglang.bench_serving`, TTFT/ITL) once the target runtime supports the required CUDA kernels
 - Budget schedules beyond fixed B (e.g., quantile-adaptive budgets per request phase)
-- Applying the same bounded-regret idea to diffusion LM parallel decoding — a natural fit I am currently surveying
+- Applying the same bounded-regret idea to other parallel-decoding regimes
 
 If you work on speculative decoding or serving systems, I'd be glad to hear your thoughts — [issues and PRs welcome](https://github.com/Kissmetothemoon/ASD).
