@@ -4,6 +4,10 @@
 email: yanruo.f@gmail.com # your email address
 github_username: Kissmetothemoon # your GitHub username
 rss_icon: true # comment this line to hide the RSS icon
+custom_social: # 小红书主页
+  logo: https://www.xiaohongshu.com/favicon.ico
+  title: Xiaohongshu
+  url: https://www.xiaohongshu.com/user/profile/68cba2df000000002102beb5
 # scholar_userid: # your Google Scholar ID（取消注释并填入 URL 中 user= 后的 12 位字符串）
 # orcid_id: # your ORCID ID
 # cv_pdf: /assets/pdf/cv.pdf # 有 CV PDF 时取消注释，并将文件放入 assets/pdf/
