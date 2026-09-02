@@ -1,12 +1,12 @@
 ---
 layout: page
 title: ASD
-description: Bounded-regret approximate acceptance for DSpark speculative decoding in SGLang
+description: Bounded-regret approximate acceptance policy for speculative decoding
 importance: 1
 category: work
 ---
 
-**ASD (Approximate Speculative Decoding)** is a bounded-regret acceptance policy for DSpark speculative decoding in [SGLang](https://github.com/sgl-project/sglang).
+**ASD (Approximate Speculative Decoding)** is a bounded-regret acceptance policy for speculative decoding.
 
 It relaxes strict greedy verification — which discards the entire draft suffix at the first mismatch — by admitting draft tokens whose regret (the gap between target logits and draft tokens) stays within a per-request bounded budget. At budget B = 0, ASD exactly recovers strict verification. The policy is implemented as a zero-intrusion adapter: downstream KV commit, finalization, and metrics paths observe an interface identical to the native greedy verifier.
 

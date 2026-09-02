@@ -2,12 +2,12 @@
 layout: post
 title: "ASD: Trading a Bounded Regret Budget for Faster Speculative Decoding"
 date: 2026-09-02 10:00:00 +0800
-description: Design notes on a bounded-regret acceptance policy for DSpark speculative decoding in SGLang — +13.3% tokens/s on Qwen3-14B at a cost of 0.23 pp accuracy on GSM8K.
-tags: [llm-inference, speculative-decoding, sglang]
+description: Design notes on a bounded-regret acceptance policy for speculative decoding — +13.3% tokens/s on Qwen3-14B at a cost of 0.23 pp accuracy on GSM8K.
+tags: [llm-inference, speculative-decoding]
 categories: [research]
 ---
 
-Speculative decoding accelerates LLM inference by letting a small draft model propose tokens that a large target model verifies in parallel. But the standard acceptance rule is stricter than it needs to be — and the waste is measurable. This post summarizes the design of **ASD (Approximate Speculative Decoding)**, a bounded-regret acceptance policy I implemented for DSpark in [SGLang](https://github.com/sgl-project/sglang), and what it buys in practice. Code: [github.com/Kissmetothemoon/ASD](https://github.com/Kissmetothemoon/ASD) (Apache-2.0).
+Speculative decoding accelerates LLM inference by letting a small draft model propose tokens that a large target model verifies in parallel. But the standard acceptance rule is stricter than it needs to be — and the waste is measurable. This post summarizes the design of **ASD (Approximate Speculative Decoding)**, a bounded-regret acceptance policy, and what it buys in practice. Code: [github.com/Kissmetothemoon/ASD](https://github.com/Kissmetothemoon/ASD) (Apache-2.0).
 
 ## The inefficiency of strict verification
 
@@ -25,11 +25,11 @@ Three design decisions kept the integration honest:
 
 - **Zero-intrusion adapter.** The ASD adapter returns the same `(correct_len, bonus, cap_trim_lens)` tuple as the native greedy verifier. KV commit, finalization, metrics, and the next draft round are all unaware of the policy switch. With the flag unset, the code path is bit-identical to upstream.
 - **No host synchronization on the hot path.** The per-request regret budget lives as a device tensor, bound at the low-frequency prefill seam. The decode hot path never calls `.item()` — control flow stays on device.
-- **Fail-loud optional dependency.** The research package is lazily imported: missing package plus unset flag means fully native DSpark; missing package plus set flag raises at startup, not mid-request. Unsupported runtimes (CUDA graph, overlap scheduling) are rejected at launch as well.
+- **Fail-loud optional dependency.** The research package is lazily imported: missing package plus unset flag means fully native decoding; missing package plus set flag raises at startup, not mid-request. Unsupported runtimes (CUDA graph, overlap scheduling) are rejected at launch as well.
 
 ## Measured results
 
-Setup: Qwen3-14B, DSpark block7 draft, 8×NVIDIA L20 (46 GB), torch 2.8.0+cu128, `temperature=0`, `num_speculative_tokens=7`, `max_new_tokens=256`, fixed seed.
+Setup: Qwen3-14B with a block7 draft model, 8×NVIDIA L20 (46 GB), torch 2.8.0+cu128, `temperature=0`, `num_speculative_tokens=7`, `max_new_tokens=256`, fixed seed.
 
 | Arm | GSM8K accuracy | TPS (tok/s) | Accept rate | Mean accept length |
 |---|---:|---:|---:|---:|
@@ -39,11 +39,11 @@ Setup: Qwen3-14B, DSpark block7 draft, 8×NVIDIA L20 (46 GB), torch 2.8.0+cu128,
 
 Two observations. First, even B=0 is faster than the stock strict path (+9.7%) — an engineering freebie from the adapter implementation. Second, spending a small regret budget (q25) buys another +3.4 points of throughput and lifts the accept rate by 2.6 pp, at a measured accuracy cost of 0.23 pp on GSM8K — well inside a 1.0 pp acceptance budget. Math500 shows the same direction (12.20% → 12.40%, 90.3 → 94.1 tok/s).
 
-Caveats: these are local research-evaluator numbers on fixed-length generation (`ignore_eos=true`), not SGLang CI results; server-side TTFT/ITL benchmarks remain to be run.
+Caveats: these are local research-evaluator numbers on fixed-length generation (`ignore_eos=true`), not CI results from any serving framework; server-side TTFT/ITL benchmarks remain to be run.
 
 ## What's next
 
-- Server-path benchmarks (`sglang.bench_serving`, TTFT/ITL) once the target runtime supports the required CUDA kernels
+- Server-path benchmarks (TTFT/ITL) once the target runtime supports the required CUDA kernels
 - Budget schedules beyond fixed B (e.g., quantile-adaptive budgets per request phase)
 - Applying the same bounded-regret idea to other parallel-decoding regimes
 
