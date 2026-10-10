@@ -12,4 +12,5 @@ It relaxes strict greedy verification — which discards the entire draft suffix
 
 - **Paper**: [arXiv:2608.03447](https://arxiv.org/abs/2608.03447)
 - **Code**: [github.com/Kissmetothemoon/ASD](https://github.com/Kissmetothemoon/ASD) (Apache-2.0)
+- **Transformers**: [HF custom generation method](https://huggingface.co/ynFeng/approximate-speculative-decoding) — use with `custom_generate="ynFeng/approximate-speculative-decoding", trust_remote_code=True` (transformers 5.19.x)
 - **Benchmarks**: Qwen3-14B + DSpark on CUDA 12.8 — see the repository for detailed results
