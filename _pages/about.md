@@ -30,7 +30,7 @@ I am a researcher at **Beihang University**, working on **AI infrastructure** �
 
 ### Research
 
-**Current — AI infrastructure for efficient inference.** I work on making LLM inference faster and cheaper. My recent project **[ASD](https://github.com/Kissmetothemoon/ASD)** ([arXiv:2608.03447](https://arxiv.org/abs/2608.03447)) introduces a bounded-regret approximate acceptance policy for speculative decoding. I am currently working on efficient inference optimization for **Diffusion Language Models (DLMs)**.
+**Current — AI infrastructure for efficient inference.** I work on making LLM inference faster and cheaper. My recent project **[ASD](https://github.com/Kissmetothemoon/ASD)** ([arXiv:2608.03447](https://arxiv.org/abs/2608.03447)) introduces a bounded-regret approximate acceptance policy for speculative decoding. My latest work **[SetCommit](https://github.com/Kissmetothemoon/SetCommit)** studies efficient inference for **Diffusion Language Models (DLMs)**, coordinating parallel token commitments to improve few-step decoding without retraining or extra forward passes.
 
 **Past — software–hardware co-optimization for compute-in-memory.** I studied how to deploy neural networks robustly on analog CiM, a new AI acceleration substrate, addressing hardware noise through co-design: noise-aware training and straight-through estimation ([ASICON'25a](/publications/)), hybrid projection decomposition for state space models ([ASICON'25b](/publications/)), noise-aware sampling for diffusion models ([DATE'26](/publications/), [ASP-DAC'27](https://arxiv.org/abs/2609.00955)), and noise-resilient LLM inference on CiM ([ROMER](https://arxiv.org/abs/2605.11800), [KV cache protection](https://arxiv.org/abs/2607.29076)).
 
