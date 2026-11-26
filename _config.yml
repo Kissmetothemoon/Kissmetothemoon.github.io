@@ -9,7 +9,7 @@ last_name: Feng
 contact_note: >
   Also reachable at ynfeng@buaa.edu.cn.
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  Personal homepage of Yuannuo Feng, AI infrastructure researcher at Beihang University, working on efficient LLM inference and compute-in-memory architectures.
+  Yuannuo Feng is a PhD student at Beihang University studying multilingual speculative decoding, diffusion language models, and analog in-memory computing.
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
@@ -340,7 +340,7 @@ display_categories: ["research"] # these categories will be displayed on the fro
 
 scholar:
   last_name: [Feng]
-  first_name: [Yuannuo, Y.]
+  first_name: [Yuannuo, Yuanuo, Y.]
 
   style: apa
   locale: en
